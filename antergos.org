@@ -1,0 +1,54 @@
+* Antergos Install Script
+** Install package manager
+#+BEGIN_SRC sh
+pacman -Sy pacaur
+alias install="pacaur -S --noconfirm"
+
+install curl
+install git
+install emacs
+install i3
+install google-chrome firefox
+install redshift
+install zsh
+
+install python2 python
+curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly
+# Install from globaly package.json
+install nodejs
+
+install wine
+install texlive-core
+install nzbget
+install intellij-idea-community-edition
+install mpv
+install calibre
+install musicbrainz
+install steam
+install jdk maven gradle
+install thunderbird
+#+END_SRC
+
+** Discord
+#+BEGIN_SRC sh
+cd "/opt"
+curl -L https://discordapp.com/api/download/canary?platform=linux&format=tar.gz -o discord.tar.gz
+mkdir discord && tar xf discord.tar.gz -C discord --strip-components 1
+rm discord.tar.gz
+#+END_SRC
+* Network setup
+Determine interface:
+ip link
+
+cp /etc/netctl/examples/wireless-wpa /etc/netctl/
+nano /etc/netctl/wireless-wpa
+edit interface name, ssid, password (key)
+sudo netctl start /etc/netctl/wireless-pacaur
+
+if interface up then
+ip link set <interface name> down
+
+** Windows manager
+pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils
+
+then i3 or whatever
