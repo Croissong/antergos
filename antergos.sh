@@ -16,11 +16,16 @@ sudo pacman -S --noconfirm zsh
 echo "[[ -f ~/.zshrc ]] && ~/.zshrc" >> ~/.zprofile
 echo "[ -z \"$DISPLAY\" -a \"$(fgconsole)\" -eq 1 ] && exec startx" >> ~/.zprofile
 chsh -s /bin/zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# oh my zsh
+curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -o zshohmy.sh
+sed -i -e "s/env zsh//" zshohmy.sh
+sh zshohmy.sh
+rm zshohmy.sh
 
 # Unnecessary if german locale chosen during setup
 sudo sed -i -e 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
-locale-gen
+sudo locale-gen
 localectl set-locale LANG=de_DE.UTF-8
 
 #Keyboard layout
