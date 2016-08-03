@@ -28,15 +28,16 @@ sh ~/zshohmy.sh
 rm ~/zshohmy.sh
 
 #Install fonts
-#mkdir ~/.fonts
-#git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/deletethis_font_install
-#cp ~/deletethis_font_install/build/*.ttf ~/.fonts/
-#rm -rf ~/deletethis_font_install/
+mkdir ~/.fonts
+git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/deletethis_font_install
+cp ~/deletethis_font_install/build/*.ttf ~/.fonts/
 
-#fc-cache -fv ~/.fonts
+fc-cache -fv ~/.fonts
 
-pacaur -S --noconfirm awesome-terminal-fonts
-pacaur -S --noconfirm zsh-theme-powerlevel9k
+mkdir -p ~/.config/fontconfig/conf.d
+cp ~/deletethis_font_install/config/10-symbols.conf ~/.config/fontconfig/conf.d/
+rm -rf ~/deletethis_font_install/
+
 
 # Install+enable zsh theme
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
