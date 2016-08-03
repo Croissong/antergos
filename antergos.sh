@@ -30,7 +30,7 @@ rm ~/zshohmy.sh
 #Install fonts
 mkdir ~/.fonts
 git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/deletethis_font_install
-cp ~/deletethis_font_install/build/*.ttf ~/.fonts/
+cp ~/deletethis_font_install/build/* ~/.fonts/
 
 fc-cache -fv ~/.fonts
 
