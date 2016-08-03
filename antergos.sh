@@ -2,22 +2,22 @@ sudo -v
 
 gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
 yaourt -S --noconfirm pacaur
-sudo pacaur -Syu
+pacaur -Syu
 
-sudo pacaur -S --noconfirm xorg-xinit xorg-server xorg-utils xorg-server-utils
+pacaur -S --noconfirm xorg-xinit xorg-server xorg-utils xorg-server-utils
 # replace i3status with i3block
-sudo pacaur -S --noconfirm i3-wm i3status i3lock
+pacaur -S --noconfirm i3-wm i3status i3lock
 
 # replace with outer launcher
-sudo pacaur -S --noconfirm dmenu
+pacaur -S --noconfirm dmenu
 
 mkdir ~/.i3
 cp /etc/i3/config ~/.i3/
 echo "exec i3" >> ~/.xinitrc
 
 # x terminal simulator, alternative for xterm
-sudo pacaur -S --noconfirm rxvt-unicode
-sudo pacaur -S --noconfirm zsh
+pacaur -S --noconfirm rxvt-unicode
+pacaur -S --noconfirm zsh
 echo "[[ -f ~/.zshrc ]] && ~/.zshrc" >> ~/.zprofile
 echo "[ -z \"$DISPLAY\" -a \"$(fgconsole)\" -eq 1 ] && exec startx" >> ~/.zprofile
 
