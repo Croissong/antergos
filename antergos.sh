@@ -43,7 +43,7 @@ rm -rf ~/deletethis_font_install/
 
 # Install+enable zsh theme
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-sed -i -e 's/ZSH_THEME=".*"/ZSH_THEME="powerlevel9k\/powerlevel9k"\\nPOWERLEVEL9K_MODE="awesome-fontconfig"/' ~/.zshrc
+sed -i -e 's/ZSH_THEME=".*"/ZSH_THEME="powerlevel9k\/powerlevel9k" POWERLEVEL9K_MODE="awesome-fontconfig"/' ~/.zshrc
 
 sudo sed -i -e 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
 sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
