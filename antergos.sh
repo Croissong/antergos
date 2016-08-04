@@ -17,7 +17,7 @@ echo "exec i3" >> ~/.xinitrc
 
 # x terminal simulator, alternative for xterm
 #pacaur -S --noconfirm rxvt-unicode
-pacaur -S xterm
+pacaur -S rxvt-unicode
 pacaur -S --noconfirm zsh
 echo "[[ -f ~/.zshrc ]] && ~/.zshrc" >> ~/.zprofile
 echo "[ -z \"$DISPLAY\" -a \"$(fgconsole)\" -eq 1 ] && exec startx" >> ~/.zprofile
@@ -29,7 +29,7 @@ sh ~/zshohmy.sh
 rm ~/zshohmy.sh
 
 #Install fonts
-mkdir -p ~./.local/share/fonts
+mkdir -p ~/.local/share/fonts
 git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/deletethis_font_install
 cp ~/deletethis_font_install/build/* ~./.local/share/fonts
 
