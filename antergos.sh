@@ -32,7 +32,7 @@ rm ~/zshohmy.sh
 #Install fonts
 mkdir -p ~/.local/share/fonts
 git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/deletethis_font_install
-cp ~/deletethis_font_install/build/* ~./.local/share/fonts
+cp ~/deletethis_font_install/build/* ~/.local/share/fonts/
 
 fc-cache -fv
 
@@ -43,9 +43,7 @@ rm -rf ~/deletethis_font_install/
 
 # Install+enable zsh theme
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-sed -i -e 's/ZSH_THEME=".*"/ZSH_THEME="powerlevel9k\/powerlevel9k"/' ~/.zshrc
-echo "POWERLEVEL9K_MODE='awesome-fontconfig'" >> ~/.zshrc
-
+sed -i -e 's/ZSH_THEME=".*"/ZSH_THEME="powerlevel9k\/powerlevel9k"\\nPOWERLEVEL9K_MODE="awesome-fontconfig"/' ~/.zshrc
 
 sudo sed -i -e 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
 sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
