@@ -1,9 +1,84 @@
+#+PROPERTY: tangle antergos.sh
 * Antergos Install Script
-** Install package manager
+** save root pw
 #+BEGIN_SRC sh
-pacman -Sy pacaur
-alias install="pacaur -S --noconfirm"
+sudo -v
+#+END_SRC
+** install pacaur and update
+#+BEGIN_SRC sh
+gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+yaourt -Sy --noconfirm pacaur
+install() {
+    /bin/pacaur -S --noconfirm "$@"
+}
+install "-yu"
+#+END_SRC
+** i3
+#+BEGIN_SRC sh
+install xorg-xinit xorg-server xorg-utils xorg-server-utils
+# replace i3status with i3block
+install i3-wm i3status i3lock
 
+mkdir ~/.i3
+cp /etc/i3/config ~/.i3/
+echo "exec i3" >> ~/.xinitrc
+#echo "[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources" >> ~/.xinitrc
+
+# x terminal emulator
+install termite
+#+END_SRC
+** zsh
+#+BEGIN_SRC sh
+install zsh
+echo "[[ -f ~/.zshrc ]] && ~/.zshrc" >> ~/.zprofile
+echo "[ -z \"$DISPLAY\" -a \"$(fgconsole)\" -eq 1 ] && exec startx" >> ~/.zprofile
+echo "[ -z \"$DISPLAY\" -a \"$(fgconsole)\" -eq 1 ] && exec startx" >> ~/.bash_profile
+
+# oh my zsh
+curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -o ~/zshohmy.sh
+sed -i -e "s/env zsh//" ~/zshohmy.sh
+sh ~/zshohmy.sh
+rm ~/zshohmy.sh
+
+# Install+enable zsh theme
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+sed -i -e 's/ZSH_THEME=".*"/ZSH_THEME="powerlevel9k\/powerlevel9k" POWERLEVEL9K_MODE="awesome-fontconfig"/' ~/.zshrc
+#+END_SRC
+** fonts
+#+BEGIN_SRC sh
+#Install fonts
+mkdir -p ~/.local/share/fonts
+mkdir -p ~/.config/fontconfig/conf.d
+
+git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/deletethis_font_install
+cp ~/deletethis_font_install/build/* ~/.local/share/fonts/
+cp ~/deletethis_font_install/config/10-symbols.conf ~/.config/fontconfig/conf.d/
+rm -rf ~/deletethis_font_install/
+
+curl -fsSL https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf -o ~/.local/share/fonts/PowerlineSymbols.otf
+curl -fsSL https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf -o ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
+
+fc-cache -fv
+#+END_SRC
+** locales
+#+BEGIN_SRC sh
+sudo sed -i -e 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
+sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sudo locale-gen
+sudo localectl set-locale LANG=en_US.UTF-8
+sudo localectl --no-convert set-x11-keymap de
+#+END_SRC
+** Install packages
+:PROPERTIES:
+:tangle:   no
+:END:
+*** i3
+# replace with outer launcher
+#+BEGIN_SRC 
+install dmenu
+#+END_SRC
+*** asd
+#+BEGIN_SRC sh
 install curl
 install git
 install emacs
@@ -29,26 +104,10 @@ install jdk maven gradle
 install thunderbird
 #+END_SRC
 
-** Discord
+*** Discord
 #+BEGIN_SRC sh
 cd "/opt"
 curl -L https://discordapp.com/api/download/canary?platform=linux&format=tar.gz -o discord.tar.gz
 mkdir discord && tar xf discord.tar.gz -C discord --strip-components 1
 rm discord.tar.gz
 #+END_SRC
-* Network setup
-Determine interface:
-ip link
-
-cp /etc/netctl/examples/wireless-wpa /etc/netctl/
-nano /etc/netctl/wireless-wpa
-edit interface name, ssid, password (key)
-sudo netctl start /etc/netctl/wireless-pacaur
-
-if interface up then
-ip link set <interface name> down
-
-** Windows manager
-pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils
-
-then i3 or whatever
