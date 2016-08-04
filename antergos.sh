@@ -31,14 +31,17 @@ rm ~/zshohmy.sh
 
 #Install fonts
 mkdir -p ~/.local/share/fonts
+mkdir -p ~/.config/fontconfig/conf.d
+
 git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/deletethis_font_install
 cp ~/deletethis_font_install/build/* ~/.local/share/fonts/
-
-fc-cache -fv
-
-mkdir -p ~/.config/fontconfig/conf.d
 cp ~/deletethis_font_install/config/10-symbols.conf ~/.config/fontconfig/conf.d/
 rm -rf ~/deletethis_font_install/
+
+curl -fsSL https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf -o ~/.local/share/fonts/PowerlineSymbols.otf
+curl -fsSL https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf -o ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
+
+fc-cache -fv
 
 
 # Install+enable zsh theme
