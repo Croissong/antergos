@@ -14,13 +14,14 @@ pacaur -S --noconfirm dmenu
 mkdir ~/.i3
 cp /etc/i3/config ~/.i3/
 echo "exec i3" >> ~/.xinitrc
+#echo "[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources" >> ~/.xinitrc
 
-# x terminal simulator, alternative for xterm
-#pacaur -S --noconfirm rxvt-unicode
-pacaur -S rxvt-unicode
+# x terminal emulator
+pacaur -S --noconfirm termite
 pacaur -S --noconfirm zsh
 echo "[[ -f ~/.zshrc ]] && ~/.zshrc" >> ~/.zprofile
 echo "[ -z \"$DISPLAY\" -a \"$(fgconsole)\" -eq 1 ] && exec startx" >> ~/.zprofile
+echo "[ -z \"$DISPLAY\" -a \"$(fgconsole)\" -eq 1 ] && exec startx" >> ~/.bash_profile
 
 # oh my zsh
 curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -o ~/zshohmy.sh
