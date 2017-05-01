@@ -49,6 +49,8 @@ install nginx-mainline
 install mpv
 install htop
 install pass
+install sshfs
+install borg
 #+END_SRC
 ** python
 #+BEGIN_SRC sh
