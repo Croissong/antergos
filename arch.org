@@ -1,0 +1,89 @@
+#+PROPERTY: tangle arch.sh
+#+PROPERTY: header-args :tangle yes
+* dotfiles
+#+BEGIN_SRC sh
+git clone git@github.com:Croissong/.dotfiles.git ~/.dotfiles
+source ~/.alias
+#+END_SRC
+* preparation
+#+BEGIN_SRC sh
+sudo -v
+gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+update
+yaourt -Sy --noconfirm pacaur
+#+END_SRC
+* fonts 
+https://www.reddit.com/r/archlinux/comments/5r5ep8/make_your_arch_fonts_beautiful_easily/
+only noto-fonts, replace in local.conf mono with fantasque sans mono
+
+* nvidia
+BLACK screen
+Datei erstellen falls nicht vorhanden: /etc/modprobe.d/blacklist.conf
+install i915 /bin/false
+install intel_agp /bin/false
+** fan
+#+BEGIN_SRC sh
+nvidia-xconfig --cool-bits=4
+nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=30"
+#+END_SRC
+* locales
+#+BEGIN_SRC sh
+sudo sed -i -e 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
+sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sudo locale-gen
+sudo cp ./resources/etc/locale.conf /etc/locale.conf
+sudo localectl --no-convert set-x11-keymap de
+#+END_SRC
+* speaker
+#+BEGIN_SRC sh
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+#+END_SRC
+* packages
+#+BEGIN_SRC sh
+install emacs
+install elixir
+install discord
+install google-chrome-dev
+ln -s /usr/bin/google-chrome-unstable /usr/bin/google-chrome
+install nginx-mainline
+install mpv
+install htop
+install pass
+#+END_SRC
+** python
+#+BEGIN_SRC sh
+install python python2
+install pip python2-pip
+#+END_SRC
+** terminal
+#+BEGIN_SRC hsg
+install rxvt-unicode
+install zsh
+chsh -s /bin/zsh
+#+END_SRC
+** redshift
+#+BEGIN_SRC 
+install redshift python-gobject python-xdg librsvg
+#+END_SRC
+** xi3
+#+BEGIN_SRC sh
+install xorg-xinit xorg-server xorg-utils xorg-server-utils
+install i3 perl-anyevent-i3
+#+END_SRC
+** chrome-remote-desktop
+#+BEGIN_SRC sh
+install chrome-remote-desktop
+crd --setup
+#+END_SRC
+** java
+#+BEGIN_SRC sh
+install jdk
+install maven
+install intellij-idea-community-edition
+#+END_SRC
+** js
+#+BEGIN_SRC sh
+install nodejs
+install npm
+install yarn
+#+END_SRC
