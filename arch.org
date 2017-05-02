@@ -1,18 +1,23 @@
-#+PROPERTY: tangle arch.sh
-#+PROPERTY: header-args :tangle yes
+#+PROPERTY: header-args :tangle arch.sh
 * dotfiles
-#+BEGIN_SRC sh
-git clone git@github.com:Croissong/.dotfiles.git ~/.dotfiles
-source ~/.alias
+#+BEGIN_SRC shell
+git clone https://github.com/Croissong/.dotfiles.git ~/.dotfiles
+source ~/.dotfiles/.alias
 #+END_SRC
 * preparation
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 sudo -v
 gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
 update
 yaourt -Sy --noconfirm pacaur
 #+END_SRC
-* fonts 
+* fonts
+#+BEGIN_SRC shell
+install ttf-dejavu ttf-liberation noto-fonts
+sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+#+END_SRC
 https://www.reddit.com/r/archlinux/comments/5r5ep8/make_your_arch_fonts_beautiful_easily/
 only noto-fonts, replace in local.conf mono with fantasque sans mono
 
@@ -22,12 +27,12 @@ Datei erstellen falls nicht vorhanden: /etc/modprobe.d/blacklist.conf
 install i915 /bin/false
 install intel_agp /bin/false
 ** fan
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 nvidia-xconfig --cool-bits=4
 nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=30"
 #+END_SRC
 * locales
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 sudo sed -i -e 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
 sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
@@ -35,11 +40,11 @@ sudo cp ./resources/etc/locale.conf /etc/locale.conf
 sudo localectl --no-convert set-x11-keymap de
 #+END_SRC
 * speaker
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 #+END_SRC
 * packages
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 install emacs
 install elixir
 install discord
@@ -51,40 +56,42 @@ install htop
 install pass
 install sshfs
 install borg
+install go
+install sqlite
 #+END_SRC
 ** python
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 install python python2
 install pip python2-pip
 #+END_SRC
 ** terminal
-#+BEGIN_SRC hsg
+#+BEGIN_SRC shell
 install rxvt-unicode
 install zsh
 chsh -s /bin/zsh
 #+END_SRC
 ** redshift
-#+BEGIN_SRC 
+#+BEGIN_SRC shell
 install redshift python-gobject python-xdg librsvg
 #+END_SRC
 ** xi3
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 install xorg-xinit xorg-server xorg-utils xorg-server-utils
 install i3 perl-anyevent-i3
 #+END_SRC
 ** chrome-remote-desktop
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 install chrome-remote-desktop
 crd --setup
 #+END_SRC
 ** java
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 install jdk
 install maven
 install intellij-idea-community-edition
 #+END_SRC
 ** js
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 install nodejs
 install npm
 install yarn
