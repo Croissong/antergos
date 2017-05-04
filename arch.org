@@ -96,3 +96,10 @@ install nodejs
 install npm
 install yarn
 #+END_SRC
+** go
+#+BEGIN_SRC shell
+mkdir $GOPATH
+install go
+go get -u github.com/nsf/gocode
+#+END_SRC
+
