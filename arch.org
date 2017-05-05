@@ -38,6 +38,8 @@ sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
 sudo cp ./resources/etc/locale.conf /etc/locale.conf
 sudo localectl --no-convert set-x11-keymap de
+timedatectl set-ntp true
+timedatectl set-timezone 'Europe/Berlin'
 #+END_SRC
 * speaker
 #+BEGIN_SRC shell
