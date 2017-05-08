@@ -47,6 +47,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 #+END_SRC
 * packages
 #+BEGIN_SRC shell
+uninstall nano
 install emacs
 install elixir
 install discord
@@ -59,6 +60,7 @@ install pass
 install sshfs
 install borg
 install go
+install pavucontrol
 install sqlite
 install rofi
 install antigen-git
