@@ -58,6 +58,8 @@ install sshfs
 install borg
 install go
 install sqlite
+install dunst-git
+install i3lock
 #+END_SRC
 ** python
 #+BEGIN_SRC shell
