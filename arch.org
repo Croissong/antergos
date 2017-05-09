@@ -13,7 +13,7 @@ yaourt -Sy --noconfirm pacaur
 #+END_SRC
 * fonts
 #+BEGIN_SRC shell
-install ttf-dejavu ttf-liberation noto-fonts
+install ttf-dejavu ttf-liberation noto-fonts ttf-fantasque-sans
 sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
 sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
@@ -38,6 +38,8 @@ sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
 sudo cp ./resources/etc/locale.conf /etc/locale.conf
 sudo localectl --no-convert set-x11-keymap de
+timedatectl set-ntp true
+timedatectl set-timezone 'Europe/Berlin'
 #+END_SRC
 * speaker
 #+BEGIN_SRC shell
@@ -45,6 +47,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 #+END_SRC
 * packages
 #+BEGIN_SRC shell
+uninstall nano
 install emacs
 install elixir
 install discord
@@ -57,9 +60,13 @@ install pass
 install sshfs
 install borg
 install go
+install pavucontrol
 install sqlite
 install dunst-git
 install i3lock
+install rofi
+install antigen-git
+install ripgrep
 #+END_SRC
 ** python
 #+BEGIN_SRC shell
@@ -91,6 +98,7 @@ crd --setup
 install jdk
 install maven
 install intellij-idea-community-edition
+#if work install eclipse-java
 #+END_SRC
 ** js
 #+BEGIN_SRC shell
