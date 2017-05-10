@@ -1,3 +1,4 @@
+
 git clone https://github.com/Croissong/.dotfiles.git ~/.dotfiles
 source ~/.dotfiles/.alias
 
@@ -6,7 +7,7 @@ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
 update
 yaourt -Sy --noconfirm pacaur
 
-install ttf-dejavu ttf-liberation noto-fonts
+install ttf-dejavu ttf-liberation noto-fonts ttf-fantasque-sans
 sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
 sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
@@ -19,9 +20,12 @@ sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
 sudo cp ./resources/etc/locale.conf /etc/locale.conf
 sudo localectl --no-convert set-x11-keymap de
+timedatectl set-ntp true
+timedatectl set-timezone 'Europe/Berlin'
 
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
+uninstall nano
 install emacs
 install elixir
 install discord
@@ -34,7 +38,11 @@ install pass
 install sshfs
 install borg
 install go
+install pavucontrol
 install sqlite
+install rofi
+install antigen-git
+install ripgrep
 
 install python python2
 install pip python2-pip
@@ -54,7 +62,14 @@ crd --setup
 install jdk
 install maven
 install intellij-idea-community-edition
+#if work install eclipse-java
 
 install nodejs
 install npm
 install yarn
+
+mkdir $GOPATH
+install go
+go get -u github.com/nsf/gocode
+
+install slack-desktop

@@ -2,7 +2,7 @@
 * dotfiles
 #+BEGIN_SRC shell
 git clone https://github.com/Croissong/.dotfiles.git ~/.dotfiles
-source ~/.dotfiles/.alias
+source ~/.dotfiles/alias
 #+END_SRC
 * preparation
 #+BEGIN_SRC shell
@@ -110,4 +110,7 @@ mkdir $GOPATH
 install go
 go get -u github.com/nsf/gocode
 #+END_SRC
-
+* work
+#+BEGIN_SRC shell tangle: no
+install slack-desktop
+#+END_SRC
