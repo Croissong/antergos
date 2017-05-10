@@ -1,4 +1,3 @@
-
 git clone https://github.com/Croissong/.dotfiles.git ~/.dotfiles
 source ~/.dotfiles/.alias
 
@@ -40,6 +39,8 @@ install borg
 install go
 install pavucontrol
 install sqlite
+install dunst-git
+install i3lock
 install rofi
 install antigen-git
 install ripgrep
@@ -71,5 +72,3 @@ install yarn
 mkdir $GOPATH
 install go
 go get -u github.com/nsf/gocode
-
-install slack-desktop
