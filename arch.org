@@ -42,6 +42,7 @@ timedatectl set-timezone 'Europe/Berlin'
 #+END_SRC
 * speaker
 #+BEGIN_SRC shell
+# touch /etc/modprobe.d/nobeep.conf  (works with sudo su)
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 #+END_SRC
 * packages
