@@ -60,7 +60,7 @@ install htop
 install pass
 install sshfs
 install borg
-install go
+install go go-tools
 install pavucontrol
 install sqlite
 install dunst-git
@@ -73,6 +73,10 @@ install ripgrep
 #+BEGIN_SRC shell
 install python python2
 install pip python2-pip
+#+END_SRC
+** docker#+BEGIN_SRC shell
+install docker
+sudo gpasswd -a skender docker
 #+END_SRC
 ** terminal
 #+BEGIN_SRC shell
@@ -116,4 +120,9 @@ go get -u github.com/nsf/gocode
 * work
 #+BEGIN_SRC shell tangle: no
 install slack-desktop
+#+END_SRC
+* gdrive
+#+BEGIN_SRC shell
+go get -u github.com/odeke-em/drive/cmd/drive
+drive init ~/gdrive
 #+END_SRC
