@@ -89,7 +89,7 @@ install redshift python-gobject python-xdg librsvg
 #+END_SRC
 ** xi3
 #+BEGIN_SRC shell
-install xorg-xinit xorg-server xorg-utils xorg-server-utils
+install xorg-xinit xorg-server
 install i3 perl-anyevent-i3
 #+END_SRC
 ** chrome-remote-desktop
