@@ -33,9 +33,6 @@ nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=
 #+END_SRC
 * locales
 #+BEGIN_SRC shell
-sudo sed -i -e 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
-sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-sudo locale-gen
 sudo localectl --no-convert set-x11-keymap de
 timedatectl set-ntp true
 timedatectl set-timezone 'Europe/Berlin'
