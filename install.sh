@@ -16,7 +16,11 @@ sgdisk -o \
 mkfs.vfat /dev/sda1
 mkfs.btrfs /dev/sda2 /dev/sda3
  
-curl $github/arch/master/mount.sh | sh
+mount /dev/sda2 /mnt
+mkdir /mnt/boot		
+mount /dev/sda1 /mnt/boot		
+mkdir /mnt/home		
+mount /dev/sda3 /mnt/home
  
 mount -o remount,size=2G /run/archiso/cowspace
 pacman -S reflector
