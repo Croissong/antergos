@@ -42,11 +42,11 @@ echo $hostname > /etc/hostname
 sed -i ‘/::1/a 127.0.1.1\t$hostname.localdomain\t$hostname’ /etc/hosts
 echo root:$password | chpasswd
  
-pacman -S  intel-ucode
+pacman -S  intel-ucode linux-lts linux-lts-headers
 bootctl --path=/boot install
 curl $github/arch/master/boot/loader.conf > /boot/loader/loader.conf
 curl $github/arch/master/boot/arch.conf > /boot/loader/entries/arch.conf
- 
+curl $github/arch/master/boot/arch-lts.conf > /boot/loader/entries/arch-lts.conf
  
 exit
 umount -R /mnt
