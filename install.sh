@@ -30,6 +30,7 @@ reflector --latest 10 --age 24 --protocol https  --sort rate --save /etc/pacman.
  
 curl $github/arch/master/etc/locale.gen > /etc/locale.gen
 curl $github/arch/master/etc/sudoers > /etc/sudoers
+curl $github/arch/master/etc/blacklist.conf > /etc/modprobe.d/blacklist.conf
  
 pacstrap /mnt base
  
@@ -65,6 +66,7 @@ arch=https://aur.archlinux.org
 git clone $aur/cower.git && cd cower && makepkg -i --skippgpcheck --needed && cd - && rm -rf cower
 git clone $aur/pacaur.git && cd pacaur && makepkg -i --needed && cd - && rm -rf pacaur
 
+#install nvidia-beta
 exit
 umount -R /mnt
 reboot
