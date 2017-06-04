@@ -4,8 +4,6 @@ read -p "username: " username
 read -sp "password: " password
 read -p "hostname: " hostname
 
-alias install="pacman -S --noconfirm"
-
 github=https://raw.githubusercontent.com/Croissong
 curl $github/.dotfiles/master/my-keys.map > /usr/share/kbd/keymaps/my-keys.map 
 loadkeys my-keys
@@ -27,7 +25,7 @@ mkdir /mnt/home
 mount /dev/sda3 /mnt/home
  
 mount -o remount,size=2G /run/archiso/cowspace
-install reflector
+pacman -S --noconfirm reflector
 reflector --latest 10 --age 24 --protocol https  --sort rate --save /etc/pacman.d/mirrorlist
  
 curl $github/arch/master/etc/locale.gen > /etc/locale.gen
@@ -39,6 +37,8 @@ pacstrap /mnt base
 curl $github/arch/master/etc/fstab > /mnt/etc/fstab
  
 arch-chroot /mnt
+alias install="pacman -S --noconfirm"
+
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
 locale-gen
