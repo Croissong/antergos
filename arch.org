@@ -37,11 +37,6 @@ sudo localectl --no-convert set-x11-keymap de
 timedatectl set-ntp true
 timedatectl set-timezone 'Europe/Berlin'
 #+END_SRC
-* speaker
-#+BEGIN_SRC shell
-# touch /etc/modprobe.d/nobeep.conf  (works with sudo su)
-echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
-#+END_SRC
 * packages
 #+BEGIN_SRC shell
 uninstall nano
