@@ -33,12 +33,9 @@ mkdir /mnt/home
 mount /dev/sda3 /mnt/home
  
 mount -o remount,size=2G /run/archiso/cowspace
-pacman -Syu --noconfirm reflector
+pacman -Syy
+pacman -S --noconfirm reflector
 reflector --latest 10 --age 24 --protocol https  --sort rate --save /etc/pacman.d/mirrorlist
- 
-curl $github/arch/master/etc/locale.gen > /etc/locale.gen
-curl $github/arch/master/etc/sudoers > /etc/sudoers
-curl $github/arch/master/etc/blacklist.conf > /etc/modprobe.d/blacklist.conf
  
 pacstrap /mnt base
  
@@ -46,6 +43,10 @@ curl $github/arch/master/etc/fstab > /mnt/etc/fstab
  
 arch-chroot /mnt
 alias install="pacman -S --noconfirm"
+
+curl $github/arch/master/etc/locale.gen > /etc/locale.gen
+curl $github/arch/master/etc/sudoers > /etc/sudoers
+curl $github/arch/master/etc/blacklist.conf > /etc/modprobe.d/blacklist.conf
 
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
@@ -77,4 +78,4 @@ git clone $aur/cower.git && cd cower && makepkg -i --skippgpcheck --needed && cd
 git clone $aur/pacaur.git && cd pacaur && makepkg -i --needed && cd - && rm -rf pacaur
 
 #install nvidia-beta
-echo "umount -R /mnt && reboot"
+echo "done... now: umount -R /mnt && reboot"
