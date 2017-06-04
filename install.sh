@@ -72,7 +72,7 @@ echo $username:$password | chpasswd
 
 install --needed binutils make gcc fakeroot expac yajl git pkg-config
 
-su skender && cd ~
+su $username && cd ~
 aur=https://aur.archlinux.org
 git clone $aur/cower.git && cd cower && makepkg -i --skippgpcheck --needed && cd - && rm -rf cower
 git clone $aur/pacaur.git && cd pacaur && makepkg -i --needed && cd - && rm -rf pacaur
