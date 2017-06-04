@@ -31,7 +31,7 @@ mkdir /mnt/home
 mount /dev/sda3 /mnt/home
  
 mount -o remount,size=2G /run/archiso/cowspace
-pacman -S --noconfirm reflector
+pacman -Syu --noconfirm reflector
 reflector --latest 10 --age 24 --protocol https  --sort rate --save /etc/pacman.d/mirrorlist
  
 curl $github/arch/master/etc/locale.gen > /etc/locale.gen
