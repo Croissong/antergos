@@ -1,6 +1,8 @@
-read -p “username: “ username
-read -sp “password: “ password
-read -p “hostname: “ hostname
+#!/bin/bash
+set -e
+read -p "username: " username
+read -sp "password: " password
+read -p "hostname: " hostname
 
 alias install="pacman -S --noconfirm"
 
@@ -40,7 +42,7 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
 locale-gen
-echo “KEYMAP=my-keys” > /etc/vconsole.conf
+echo KEYMAP=my-keys > /etc/vconsole.conf
  
 echo $hostname > /etc/hostname
 sed -i ‘/::1/a 127.0.1.1\t$hostname.localdomain\t$hostname’ /etc/hosts
