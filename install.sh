@@ -17,7 +17,7 @@ sgdisk -o \
 /dev/sda
  
 mkfs.vfat /dev/sda1
-mkfs.btrfs /dev/sda2 /dev/sda3
+mkfs.btrfs -f /dev/sda2 /dev/sda3
  
 mount /dev/sda2 /mnt
 mkdir /mnt/boot		
