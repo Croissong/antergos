@@ -69,6 +69,3 @@ git clone $aur/cower.git && cd cower && makepkg -i --skippgpcheck --needed && cd
 git clone $aur/pacaur.git && cd pacaur && makepkg -i --needed && cd - && rm -rf pacaur
 
 #install nvidia-beta
-exit
-umount -R /mnt
-reboot
