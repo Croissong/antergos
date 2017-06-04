@@ -2,7 +2,7 @@
 set -e
 
 export github=https://raw.githubusercontent.com/Croissong
-curl $github/.dotfiles/master/my-keys.map > /usr/share/kbd/keymaps/my-keys.map 
+curl -k $github/.dotfiles/master/my-keys.map > /usr/share/kbd/keymaps/my-keys.map 
 loadkeys my-keys
 
 read -p "username: " username </dev/tty
@@ -39,14 +39,14 @@ reflector --latest 10 --age 24 --protocol https  --sort rate --save /etc/pacman.
  
 pacstrap /mnt base
  
-curl $github/arch/master/etc/fstab > /mnt/etc/fstab
+curl -k $github/arch/master/etc/fstab > /mnt/etc/fstab
  
 arch-chroot /mnt
 alias install="pacman -S --noconfirm"
 
-curl $github/arch/master/etc/locale.gen > /etc/locale.gen
-curl $github/arch/master/etc/sudoers > /etc/sudoers
-curl $github/arch/master/etc/blacklist.conf > /etc/modprobe.d/blacklist.conf
+curl -k $github/arch/master/etc/locale.gen > /etc/locale.gen
+curl -k $github/arch/master/etc/sudoers > /etc/sudoers
+curl -k $github/arch/master/etc/blacklist.conf > /etc/modprobe.d/blacklist.conf
 
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
@@ -59,9 +59,9 @@ echo root:$password | chpasswd
  
 install intel-ucode linux-lts linux-lts-headers
 bootctl --path=/boot install
-curl $github/arch/master/boot/loader.conf > /boot/loader/loader.conf
-curl $github/arch/master/boot/arch.conf > /boot/loader/entries/arch.conf
-curl $github/arch/master/boot/arch-lts.conf > /boot/loader/entries/arch-lts.conf
+curl -k $github/arch/master/boot/loader.conf > /boot/loader/loader.conf
+curl -k $github/arch/master/boot/arch.conf > /boot/loader/entries/arch.conf
+curl -k $github/arch/master/boot/arch-lts.conf > /boot/loader/entries/arch-lts.conf
 
 install connman
 systemctl enable connman
