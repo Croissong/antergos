@@ -2,8 +2,6 @@
 set -e
 
 export github=https://raw.githubusercontent.com/Croissong
-curl -k $github/.dotfiles/master/my-keys.map > /usr/share/kbd/keymaps/my-keys.map 
-loadkeys my-keys
 
 read -p "username: " username </dev/tty
 read -sp "password: " password </dev/tty
@@ -47,6 +45,8 @@ alias install="pacman -S --noconfirm"
 curl -k $github/arch/master/etc/locale.gen > /etc/locale.gen
 curl -k $github/arch/master/etc/sudoers > /etc/sudoers
 curl -k $github/arch/master/etc/blacklist.conf > /etc/modprobe.d/blacklist.conf
+curl -k $github/.dotfiles/master/my-keys.map > /usr/share/kbd/keymaps/my-keys.map 
+loadkeys my-keys
 
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
