@@ -78,8 +78,6 @@ sudo gpasswd -a skender docker
 ** terminal
 #+BEGIN_SRC shell
 install rxvt-unicode
-install zsh
-chsh -s /bin/zsh
 #+END_SRC
 ** redshift
 #+BEGIN_SRC shell
