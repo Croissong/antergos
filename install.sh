@@ -13,6 +13,8 @@ if [ "$password" != "$password2" ]; then
     exit
 fi;
 read -p "hostname: " hostname </dev/tty
+
+export username password hostname
  
 timedatectl set-ntp true
 sgdisk -o \
@@ -70,7 +72,7 @@ echo $username:$password | chpasswd
 install --needed binutils make gcc fakeroot expac yajl git pkg-config
 
 su skender && cd ~
-arch=https://aur.archlinux.org
+aur=https://aur.archlinux.org
 git clone $aur/cower.git && cd cower && makepkg -i --skippgpcheck --needed && cd - && rm -rf cower
 git clone $aur/pacaur.git && cd pacaur && makepkg -i --needed && cd - && rm -rf pacaur
 
