@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-github=https://raw.githubusercontent.com/Croissong
+export github=https://raw.githubusercontent.com/Croissong
 curl $github/.dotfiles/master/my-keys.map > /usr/share/kbd/keymaps/my-keys.map 
 loadkeys my-keys
 
