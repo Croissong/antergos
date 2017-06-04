@@ -50,6 +50,10 @@ curl $github/arch/master/boot/arch-lts.conf > /boot/loader/entries/arch-lts.conf
 
 pacman -S connman
 systemctl enable connman
+
+pacman -S zsh
+useradd -m -G wheel -s /bin/zsh $username
+echo $username:$password | chpasswd 
  
 exit
 umount -R /mnt
