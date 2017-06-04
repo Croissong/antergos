@@ -26,11 +26,11 @@ mount -o remount,size=2G /run/archiso/cowspace
 pacman -S reflector
 reflector --latest 10 --age 24 --protocol https  --sort rate --save /etc/pacman.d/mirrorlist
  
-curl $github/arch/master/locale.gen > /etc/locale.gen
+curl $github/arch/master/etc/locale.gen > /etc/locale.gen
  
 pacstrap /mnt base
  
-genfstab -L /mnt >> /mnt/etc/fstab
+curl $github/arch/master/etc/fstab > /mnt/etc/fstab
  
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
@@ -47,6 +47,9 @@ bootctl --path=/boot install
 curl $github/arch/master/boot/loader.conf > /boot/loader/loader.conf
 curl $github/arch/master/boot/arch.conf > /boot/loader/entries/arch.conf
 curl $github/arch/master/boot/arch-lts.conf > /boot/loader/entries/arch-lts.conf
+
+pacman -S connman
+systemctl enable connman
  
 exit
 umount -R /mnt
