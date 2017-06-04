@@ -7,6 +7,11 @@ loadkeys my-keys
 
 read -p "username: " username </dev/tty
 read -sp "password: " password </dev/tty
+read -sp "password again: " password2 </dev/tty
+if [ "$password" != "$password2" ]; then 
+    echo "passwords didnt match"
+    exit
+fi;
 read -p "hostname: " hostname </dev/tty
  
 timedatectl set-ntp true
