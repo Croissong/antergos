@@ -1,12 +1,13 @@
 #!/bin/bash
 set -e
-read -p "username: " username </dev/tty
-read -sp "password: " password </dev/tty
-read -p "hostname: " hostname </dev/tty
 
 github=https://raw.githubusercontent.com/Croissong
 curl $github/.dotfiles/master/my-keys.map > /usr/share/kbd/keymaps/my-keys.map 
 loadkeys my-keys
+
+read -p "username: " username </dev/tty
+read -sp "password: " password </dev/tty
+read -p "hostname: " hostname </dev/tty
  
 timedatectl set-ntp true
 sgdisk -o \
