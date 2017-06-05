@@ -73,6 +73,7 @@ echo $username:$password | chpasswd
 install --needed binutils make gcc fakeroot expac yajl git pkg-config
 
 git clone https://github.com/croissong/.dotfiles /home/$username
+chown -R $username:$username /home/$username
 
 su $username && cd ~
 aur=https://aur.archlinux.org
