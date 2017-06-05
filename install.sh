@@ -67,10 +67,12 @@ install connman
 systemctl enable connman
 
 install zsh sudo
-useradd -m -G wheel -s /bin/zsh $username
+useradd -G wheel -s /bin/zsh $username
 echo $username:$password | chpasswd 
 
 install --needed binutils make gcc fakeroot expac yajl git pkg-config
+
+git clone https://github.com/croissong/.dotfiles /home/$username
 
 su $username && cd ~
 aur=https://aur.archlinux.org
