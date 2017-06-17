@@ -29,6 +29,7 @@ mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot		
 mkdir /mnt/home		
 mount /dev/sda3 /mnt/home
+mount -B /run/archiso/img_dev/files /mnt/mnt
  
 mount -o remount,size=2G /run/archiso/cowspace
 pacman -Syy
