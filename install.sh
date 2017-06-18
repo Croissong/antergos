@@ -101,5 +101,7 @@ yadm submodule update --init --recursive && yadm submodule foreach git checkout 
 install physlock
 systemctl enable physlock@$username
 
+install exa-git
+
 #install nvidia-beta
 echo "done... now: umount -R /mnt && reboot"
