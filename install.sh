@@ -42,6 +42,7 @@ pacstrap /mnt base
 
 mv arch/etc/blacklist.conf /mnt/etc/modprobe.d/blacklist.conf
 mv arch/etc/fstab /mnt/etc/fstab
+mv arch/etc/iptables/iptables.rules /mnt/etc/iptables/iptables.rules
 mv arch/etc/locale.gen/mnt/etc/locale.gen
 mv arch/etc/sudoers /mnt/etc/sudoers
 mv arch/etc/systemd/system/* /mnt/etc/systemd/system/
