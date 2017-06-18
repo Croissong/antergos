@@ -73,6 +73,8 @@ echo $username:$password | chpasswd
 
 su $username && cd ~
 
+curl -L https://api.github.com/repos/croissong/dotfiles/tarball | tar -xvz --strip-components=1
+
 gpg --import /mnt/privkey.asc
 
 install --needed binutils make gcc fakeroot expac yajl git pkg-config
@@ -84,7 +86,6 @@ alias install="pacaur -S --noconfirm"
 
 install openssh yadm-git
 
-mkdir ~/.ssh
 cp /mnt/.ssh/id_rsa_$HOST ~/.ssh/id_rsa
 cp /mnt/.ssh/id_rsa_$HOST.pub ~/.ssh/id_rsa.pub
 
