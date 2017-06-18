@@ -90,6 +90,6 @@ cp /mnt/.ssh/id_rsa_$HOST ~/.ssh/id_rsa
 cp /mnt/.ssh/id_rsa_$HOST.pub ~/.ssh/id_rsa.pub
 
 yadm clone git@github.com:Croissong/.dotfiles.git
-
+yadm submodule update --init --recursive && yadm submodule foreach git checkout master
 #install nvidia-beta
 echo "done... now: umount -R /mnt && reboot"
