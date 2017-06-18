@@ -36,20 +36,22 @@ mount -B /run/archiso/img_dev/files /mnt/mnt
 mount -o remount,size=2G /run/archiso/cowspace
 pacman -Syy
 pacman -S --noconfirm reflector
-reflector --latest 10 --age 24 --protocol https  --sort rate --save /etc/pacman.d/mirrorlist
+reflector --latest 10 --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
  
 pacstrap /mnt base
- 
+
+mv arch/etc/blacklist.conf /mnt/etc/modprobe.d/blacklist.conf
 mv arch/etc/fstab /mnt/etc/fstab
 mv arch/etc/locale.gen/mnt/etc/locale.gen
 mv arch/etc/sudoers /mnt/etc/sudoers
-mv arch/etc/blacklist.conf /mnt/etc/modprobe.d/blacklist.conf
+mv arch/etc/systemd/system/* /mnt/etc/systemd/system/
 mv arch/etc/vconsole.conf /mnt/etc/vconsole.conf
+
 mv arch/usr/my-keys.map /mnt/usr/share/kbd/keymaps/my-keys.map
+
 mv arch/boot/loader.conf /mnt/boot/loader/loader.conf
 mv arch/boot/arch.conf /mnt/boot/loader/entries/arch.conf
 mv arch/boot/arch-lts.conf /mnt/boot/loader/entries/arch-lts.conf
-
 
 arch-chroot /mnt
 alias install="pacman -S --noconfirm"
@@ -89,10 +91,14 @@ alias install="pacaur -S --noconfirm"
 
 install openssh yadm-git
 
-cp /mnt/.ssh/id_rsa_$HOST ~/.ssh/id_rsa
-cp /mnt/.ssh/id_rsa_$HOST.pub ~/.ssh/id_rsa.pub
+cp /mnt/.ssh/id_rsa_$hostname ~/.ssh/id_rsa
+cp /mnt/.ssh/id_rsa_$hostname.pub ~/.ssh/id_rsa.pub
 
 yadm clone git@github.com:Croissong/.dotfiles.git
 yadm submodule update --init --recursive && yadm submodule foreach git checkout master
+
+install physlock
+systemctl enable physlock@$username
+
 #install nvidia-beta
 echo "done... now: umount -R /mnt && reboot"
