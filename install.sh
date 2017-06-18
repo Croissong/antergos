@@ -68,18 +68,27 @@ install connman
 systemctl enable connman
 
 install zsh sudo
-useradd -G wheel -s /bin/zsh $username
+useradd -m -G wheel -s /bin/zsh $username
 echo $username:$password | chpasswd 
 
-install --needed binutils make gcc fakeroot expac yajl git pkg-config
-
-git clone https://github.com/croissong/.dotfiles /home/$username
-chown -R $username:$username /home/$username
-
 su $username && cd ~
+
+gpg --import /mnt/privkey.asc
+
+install --needed binutils make gcc fakeroot expac yajl git pkg-config
 aur=https://aur.archlinux.org
 git clone $aur/cower.git && cd cower && makepkg -i --skippgpcheck --needed && cd - && rm -rf cower
 git clone $aur/pacaur.git && cd pacaur && makepkg -i --needed && cd - && rm -rf pacaur
+
+alias install="pacaur -S --noconfirm"
+
+install openssh yadm-git
+
+mkdir ~/.ssh
+cp /mnt/.ssh/id_rsa_$HOST ~/.ssh/id_rsa
+cp /mnt/.ssh/id_rsa_$HOST.pub ~/.ssh/id_rsa.pub
+
+yadm clone git@github.com:Croissong/.dotfiles.git /home/$username
 
 #install nvidia-beta
 echo "done... now: umount -R /mnt && reboot"
