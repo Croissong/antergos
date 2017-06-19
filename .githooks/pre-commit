@@ -1,5 +1,7 @@
 #!/bin/bash
 if [[ ~/.arch/arch.org -nt ~/.arch/arch.sh ]]; then
-    echo "arch.org is newer than arch.sh" >&2
+    emacsclient -e '(org-babel-tangle-file "~/.arch/arch.org")'
+    git add arch.sh
+    echo "Tangled arch.sh"
     exit 1
 fi

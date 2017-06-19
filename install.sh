@@ -95,7 +95,7 @@ install openssh yadm-git
 cp /mnt/.ssh/id_rsa_$hostname ~/.ssh/id_rsa
 cp /mnt/.ssh/id_rsa_$hostname.pub ~/.ssh/id_rsa.pub
 
-yadm clone git@github.com:Croissong/.dotfiles.git
+yadm clone --bootstrap git@github.com:Croissong/.dotfiles.git
 
 install physlock
 systemctl enable physlock@$username
