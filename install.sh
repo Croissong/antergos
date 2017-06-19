@@ -102,6 +102,6 @@ install physlock
 systemctl enable physlock@$username
 
 install exa-git
-
-#install nvidia-beta
+install tmux
+install nvidia
 echo "done... now: umount -R /mnt && reboot"
