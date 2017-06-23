@@ -30,6 +30,7 @@ install dtrx
 install rofi
 install antigen-git
 install ripgrep
+install nfs-utils
 
 install python python2
 install pip python2-pip
