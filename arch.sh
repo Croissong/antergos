@@ -131,6 +131,7 @@ install pass
 install sshfs
 install borg
 install go go-tools
+install pulseaudio
 install pavucontrol
 install sqlite
 install dunst-git
@@ -139,6 +140,7 @@ install rofi
 install antigen-git
 install ripgrep
 install nfs-utils
+install ranger
 
 install python python2
 install pip python2-pip
