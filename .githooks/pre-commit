@@ -2,7 +2,7 @@
 root=`git rev-parse --show-toplevel`
 orgFile=$root/arch.org
 
-if [[ orgFile -nt $root/arch.sh ]]; then
+if [[ $orgFile -nt $root/arch.sh ]]; then
     emacsclient -e '(org-babel-tangle-file "'$orgFile'")'
     git add arch.sh
     echo "Tangled arch.sh"
