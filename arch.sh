@@ -103,7 +103,6 @@ install physlock
 systemctl enable physlock@$username
 
 install exa-git
-install tmux
 install nvidia
 echo "done... now: umount -R /mnt && reboot"
 
@@ -113,13 +112,14 @@ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf ~/fontconfig/conf.d
 sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf ~/fontconfig/conf.d
 sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf ~/fontconfig/conf.d
 
+loginctl enable-linger $username
+
 nvidia-xconfig --cool-bits=4
 nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=30"
 
 localectl --no-convert set-x11-keymap de "" "" ctrl:nocaps
 
 uninstall nano
-install emacs
 install elixir
 install gscreenshot
 install discord
@@ -145,6 +145,15 @@ install ranger
 
 install python python2
 install pip python2-pip
+
+install emacs
+systemctl --user enable emacs
+
+install tmux
+systemctl --user enable tmux
+
+install docker
+sudo gpasswd -a skender docker
 
 install rxvt-unicode
 

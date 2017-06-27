@@ -106,7 +106,6 @@ install physlock
 systemctl enable physlock@$username
 
 install exa-git
-install tmux
 install nvidia
 echo "done... now: umount -R /mnt && reboot"
 
@@ -118,6 +117,11 @@ mkdir ~/fontconfig/conf.d
 sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf ~/fontconfig/conf.d
 sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf ~/fontconfig/conf.d
 sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf ~/fontconfig/conf.d
+#+END_SRC
+* systemd
+[[https://wiki.archlinux.org/index.php/Systemd/User#Automatic_start-up_of_systemd_user_instances][Automatic_start-up_of_systemd_user_instances]]
+#+BEGIN_SRC shell
+loginctl enable-linger $username
 #+END_SRC
 * nvidia
 BLACK screen
@@ -136,7 +140,6 @@ localectl --no-convert set-x11-keymap de "" "" ctrl:nocaps
 * packages
 #+BEGIN_SRC shell
 uninstall nano
-install emacs
 install elixir
 install gscreenshot
 install discord
@@ -165,7 +168,18 @@ install ranger
 install python python2
 install pip python2-pip
 #+END_SRC
-** docker#+BEGIN_SRC shell
+** emacs
+#+BEGIN_SRC shell
+install emacs
+systemctl --user enable emacs
+#+END_SRC
+** tmux
+#+BEGIN_SRC shell
+install tmux
+systemctl --user enable tmux
+#+END_SRC
+** docker
+#+BEGIN_SRC shell
 install docker
 sudo gpasswd -a skender docker
 #+END_SRC
