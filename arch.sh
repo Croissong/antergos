@@ -43,7 +43,8 @@ pacstrap /mnt base
 mv arch/etc/blacklist.conf /mnt/etc/modprobe.d/blacklist.conf
 mv arch/etc/fstab /mnt/etc/fstab
 mv arch/etc/iptables/iptables.rules /mnt/etc/iptables/iptables.rules
-mv arch/etc/locale.gen /mnt/etc/locale.gen
+mv arch/etc/locale.gen /mnt/etc/
+mv arch/etc/makepkg.conf /mnt/etc/
 mv arch/etc/pam.d/* /mnt/etc/pam.d/
 mv arch/etc/sudoers /mnt/etc/sudoers
 mv arch/etc/systemd/system/* /mnt/etc/systemd/system/
@@ -122,7 +123,7 @@ localectl --no-convert set-x11-keymap de "" "" ctrl:nocaps
 uninstall nano
 install elixir
 install gscreenshot
-install discord
+install discord-canary
 install google-chrome-dev
 ln -s /usr/bin/google-chrome-unstable /usr/bin/google-chrome
 install nginx-mainline
