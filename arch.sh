@@ -129,7 +129,8 @@ ln -s /usr/bin/google-chrome-unstable /usr/bin/google-chrome
 install nginx-mainline
 install mpv
 install htop
-install pass
+install qt-base
+install pass browserpass
 install sshfs
 install borg
 install go go-tools
@@ -142,7 +143,7 @@ install rofi
 install antigen-git
 install ripgrep
 install nfs-utils
-install ranger
+install ranger w3m
 
 install python python2
 install pip python2-pip
