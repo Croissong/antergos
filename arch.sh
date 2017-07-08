@@ -44,6 +44,7 @@ mv arch/etc/blacklist.conf /mnt/etc/modprobe.d/blacklist.conf
 mv arch/etc/fstab /mnt/etc/fstab
 mv arch/etc/iptables/iptables.rules /mnt/etc/iptables/iptables.rules
 mv arch/etc/locale.gen /mnt/etc/
+mv arch/etc/locale.conf /mnt/etc/
 mv arch/etc/makepkg.conf /mnt/etc/
 mv arch/etc/pam.d/* /mnt/etc/pam.d/
 mv arch/etc/sudoers /mnt/etc/sudoers
