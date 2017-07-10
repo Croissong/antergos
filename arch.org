@@ -71,7 +71,7 @@ hwclock --systohc
 locale-gen
  
 echo $hostname > /etc/hostname
-sed -i ‘/::1/a 127.0.1.1\t$hostname.localdomain\t$hostname’ /etc/hosts
+sed -i "/::1/a 127.0.1.1\t$hostname.localdomain\t$hostname" /etc/hosts
 echo root:$password | chpasswd
  
 install intel-ucode linux-lts linux-lts-headers
@@ -103,6 +103,8 @@ cp /mnt/.ssh/id_rsa_$hostname ~/.ssh/id_rsa
 cp /mnt/.ssh/id_rsa_$hostname.pub ~/.ssh/id_rsa.pub
 
 yadm clone --bootstrap git@github.com:Croissong/.dotfiles.git
+
+mkdir code
 
 install physlock
 systemctl enable physlock@$username
