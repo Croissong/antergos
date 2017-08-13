@@ -164,6 +164,8 @@ install rxvt-unicode
 
 install redshift python-gobject python-xdg librsvg
 
+sudo pip install wakatime
+
 install xorg-xinit xorg-server
 install i3 perl-anyevent-i3
 

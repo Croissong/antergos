@@ -196,6 +196,10 @@ install rxvt-unicode
 #+BEGIN_SRC shell
 install redshift python-gobject python-xdg librsvg
 #+END_SRC
+** wakatime
+#+BEGIN_SRC shell
+sudo pip install wakatime
+#+END_SRC
 ** xi3
 #+BEGIN_SRC shell
 install xorg-xinit xorg-server
