@@ -1,10 +1,10 @@
 # /dev/sda2 UUID=c963b363-ae8f-41cc-9c45-c48cede33132
-/dev/sda2           	/         	btrfs     	rw,discard,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
+/dev/sda2           	/         	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
 
 # /dev/sda1 UUID=04CC-8176
-/dev/sda1           	/boot     	vfat      	rw,discard,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+/dev/sda1           	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
 
 # /dev/sda2 UUID=c963b363-ae8f-41cc-9c45-c48cede33132
-/dev/sda2           	/home     	btrfs     	rw,discard,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
+/dev/sda2           	/home     	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
 
 //192.168.0.28/download  /mnt/synology/download  cifs credentials=/home/skender/.priv/credentials/synology,noauto,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 0

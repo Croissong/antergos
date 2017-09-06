@@ -108,6 +108,9 @@ systemctl enable physlock@$username
 
 install exa-git
 install nvidia
+
+systemctl enable fstrim.timer
+
 echo "done... now: umount -R /mnt && reboot"
 
 install ttf-dejavu ttf-liberation noto-fonts ttf-fantasque-sans ttf-material-design-icons
