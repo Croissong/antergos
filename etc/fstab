@@ -8,3 +8,5 @@
 /dev/sda2           	/home     	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
 
 //192.168.0.28/download  /mnt/synology/download  cifs credentials=/home/skender/.priv/credentials/synology,noauto,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 0
+
+//192.168.0.28/music  /mnt/synology/music  cifs credentials=/home/skender/.priv/credentials/synology,noauto,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 0
