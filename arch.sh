@@ -51,6 +51,7 @@ mv arch/etc/sudoers /mnt/etc/sudoers
 mv arch/etc/systemd/system/* /mnt/etc/systemd/system/
 mv arch/etc/vconsole.conf /mnt/etc/vconsole.conf
 mv arch/etc/X11/xorg.conf.d/* /mnt/etc/X11/xorg.conf.d/
+mv arch/etc/udev/rules.d/* /mnt/etc/udev/rules.d/
 
 mv arch/usr/my-keys.map /mnt/usr/share/kbd/keymaps/my-keys.map
 
@@ -159,6 +160,7 @@ systemctl --user enable emacs
 
 install tmux
 systemctl --user enable tmux
+install tmuxinator
 
 install docker
 sudo gpasswd -a skender docker
