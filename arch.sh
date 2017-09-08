@@ -144,7 +144,7 @@ install go go-tools
 install pulseaudio
 install pavucontrol
 install sqlite
-install dunst-git
+install dunst
 install dtrx
 install rofi
 install antigen-git
