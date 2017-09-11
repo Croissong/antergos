@@ -191,6 +191,7 @@ install tmuxinator
 ** docker
 #+BEGIN_SRC shell
 install docker
+install docker-compose
 sudo gpasswd -a skender docker
 #+END_SRC
 ** terminal

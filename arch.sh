@@ -163,6 +163,7 @@ systemctl --user enable tmux
 install tmuxinator
 
 install docker
+install docker-compose
 sudo gpasswd -a skender docker
 
 install rxvt-unicode
