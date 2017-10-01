@@ -145,12 +145,14 @@ install pulseaudio
 install pavucontrol
 install sqlite
 install dunst
+install unzip
 install dtrx
 install rofi
 install antigen-git
 install ripgrep
 install nfs-utils
 install ranger w3m
+install base-devel
 
 install python python2
 install pip python2-pip
