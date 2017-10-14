@@ -153,6 +153,9 @@ install ripgrep
 install nfs-utils
 install ranger w3m
 install base-devel
+install rustup
+rustup default nightly
+install skim
 
 install python python2
 install pip python2-pip

@@ -173,6 +173,9 @@ install ripgrep
 install nfs-utils
 install ranger w3m
 install base-devel
+install rustup
+rustup default nightly
+install skim
 #+END_SRC
 ** python
 #+BEGIN_SRC shell
