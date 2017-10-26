@@ -175,13 +175,6 @@ install rxvt-unicode
 
 install redshift python-gobject python-xdg librsvg
 systemctl --user enable redshift-gtk
-cat <<EOT >> /etc/geoclue/geoclue.conf
-
-[redshift]
-allowed=true
-system=false
-users=
-EOT
 
 sudo pip install wakatime
 

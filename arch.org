@@ -207,13 +207,6 @@ install rxvt-unicode
 #+BEGIN_SRC shell
 install redshift python-gobject python-xdg librsvg
 systemctl --user enable redshift-gtk
-cat <<EOT >> /etc/geoclue/geoclue.conf
-
-[redshift]
-allowed=true
-system=false
-users=
-EOT
 #+END_SRC
 ** wakatime
 #+BEGIN_SRC shell
