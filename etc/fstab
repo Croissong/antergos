@@ -1,12 +1,12 @@
-# /dev/sda2
-UUID=9d36e5b1-4c4b-4b42-816c-425b4caa2d53           	/         	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
-
 # /dev/sda1
-UUID=5B93-4BD6           	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+PARTUUID=df6bac9b-5ef1-415a-bbcb-6272cf063f0a           	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+
+# /dev/sda3
+PARTUUID=b360585e-29d2-4d58-bc2f-991a404f9b3e           	/home     	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
 
 # /dev/sda2
-UUID=9d36e5b1-4c4b-4b42-816c-425b4caa2d53           	/home     	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
+PARTUUID=061789e6-fc9c-46a6-8f74-bb279ac5ad95           	/         	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
+  
+//192.168.0.28/download  /mnt/synology/download  cifs vers=3.0,credentials=/home/skender/.priv/credentials/synology,noauto,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 0
 
-//192.168.0.28/download  /mnt/synology/download  cifs credentials=/home/skender/.priv/credentials/synology,noauto,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 0
-
-//192.168.0.28/music  /mnt/synology/music  cifs credentials=/home/skender/.priv/credentials/synology,noauto,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 0
+//192.168.0.28/music  /mnt/synology/music  cifs vers=3.0,credentials=/home/skender/.priv/credentials/synology,noauto,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 0

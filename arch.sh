@@ -78,6 +78,8 @@ bootctl --path=/boot install
 install connman
 systemctl enable connman
 
+systemctl enable iptables
+
 install zsh sudo
 useradd -m -G wheel -s /bin/zsh $username
 echo $username:$password | chpasswd 
@@ -139,6 +141,7 @@ install htop
 install qt-base
 install pass browserpass
 install sshfs
+install cifs-utils
 install borg
 install go go-tools
 install pulseaudio
