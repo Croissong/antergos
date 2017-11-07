@@ -71,8 +71,13 @@ locale-gen
 echo $hostname > /etc/hostname
 sed -i "/::1/a 127.0.1.1\t$hostname.localdomain\t$hostname" /etc/hosts
 echo root:$password | chpasswd
- 
-install intel-ucode linux-lts linux-lts-headers
+
+pacman -Rns --noconfirm linux
+install intel-ucode linux-zen-headers linux-lts-headers
+install nvidia-dkms
+
+install linux-zen linux-lts
+
 bootctl --path=/boot install
 
 install connman
@@ -110,7 +115,6 @@ install physlock
 systemctl enable physlock@$username
 
 install exa-git
-install nvidia
 
 systemctl enable fstrim.timer
 
