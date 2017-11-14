@@ -34,3 +34,25 @@
       template:
         src: files/etc/fstab.j2
         dest: /etc/fstab
+    - name: Sudoers template
+      template:
+        src: files/etc/sudoers.j2
+        dest: /etc/sudoers
+    - name: Enable fstrim
+      systemd:
+        name: fstrim.timer
+        enabled: yes
+    - name: Physlock
+      block:
+        - name: Install physlock
+          pacman:
+            name: physlock
+            state: present
+        - name: Physlock template
+          template:
+            src: files/etc/systemd/system/physlock.service.j2
+            dest: /etc/systemd/system/physlock.service
+        - name: Enable physlock
+          systemd:
+            name: physlock
+            enabled: yes
