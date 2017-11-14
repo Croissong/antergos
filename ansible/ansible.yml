@@ -1,0 +1,32 @@
+---
+# source https://github.com/cdown/ansible-desktop/blob/master/setup.yml
+- hosts: localhost
+  connection: local
+  
+  vars_files:
+    - vars/common.yml
+
+  tasks:
+    - name: update pacman cache
+      pacman:
+        update_cache: yes
+    - name: Connman
+      block:
+        - name: Install connman
+          pacman:
+            name: connman
+            state: present
+        - name: Enable connman
+          systemd:
+            name: connman
+            enabled: yes
+    - name: Iptables
+      block:
+        - name: Iptables rule template
+          template:
+            src: files/etc/iptables/iptables.rules.j2
+            dest: /etc/iptables/iptables.rules
+        - name: Enable iptables
+          systemd:
+            name: iptables
+            enabled: yes
