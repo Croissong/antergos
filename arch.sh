@@ -41,7 +41,6 @@ reflector --latest 10 --age 24 --protocol https --sort rate --save /etc/pacman.d
 pacstrap /mnt base
 
 mv arch/etc/blacklist.conf /mnt/etc/modprobe.d/blacklist.conf
-mv arch/etc/fstab /mnt/etc/fstab
 mv arch/etc/locale.gen /mnt/etc/
 mv arch/etc/locale.conf /mnt/etc/
 mv arch/etc/makepkg.conf /mnt/etc/

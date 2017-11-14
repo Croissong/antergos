@@ -30,3 +30,7 @@
           systemd:
             name: iptables
             enabled: yes
+    - name: Fstab template
+      template:
+        src: files/etc/fstab.j2
+        dest: /etc/fstab
