@@ -1,0 +1,13 @@
+---
+- name: Boot loader conf template
+  template:
+    src: files/boot/loader/loader.conf.j2
+    dest: /boot/loader/loader.conf
+- name: Boot loader arch-zen entry template
+  template:
+    src: files/boot/loader/entries/arch-zen.conf.j2
+    dest: /boot/loader/entries/arch-zen.conf
+- name: Boot loader arch-zen entry template
+  template:
+    src: files/boot/loader/entries/arch-lts.conf.j2
+    dest: /boot/loader/entries/arch-lts.conf

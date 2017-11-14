@@ -56,3 +56,4 @@
           systemd:
             name: physlock
             enabled: yes
+    - import_tasks: tasks/bootloader.yml

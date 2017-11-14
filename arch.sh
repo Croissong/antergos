@@ -51,10 +51,6 @@ mv arch/etc/udev/rules.d/* /mnt/etc/udev/rules.d/
 
 mv arch/usr/my-keys.map /mnt/usr/share/kbd/keymaps/my-keys.map
 
-mv arch/boot/loader.conf /mnt/boot/loader/loader.conf
-mv arch/boot/arch.conf /mnt/boot/loader/entries/arch.conf
-mv arch/boot/arch-lts.conf /mnt/boot/loader/entries/arch-lts.conf
-
 arch-chroot /mnt
 alias install="pacman -S --noconfirm"
 
